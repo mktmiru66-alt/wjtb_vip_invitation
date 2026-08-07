@@ -226,16 +226,13 @@
   .submit:active { transform: translateY(1px); }
   .submit:disabled { opacity: 0.6; cursor: default; }
 
-  .fallback-link {
-    display: block;
-    margin-top: 16px;
+  .fallback-note {
+    margin: 16px 0 0;
     text-align: center;
     font-size: 12.5px;
+    line-height: 1.6;
     color: var(--ink-500);
-    text-decoration: underline;
-    text-underline-offset: 2px;
   }
-  .fallback-link:hover { color: var(--gold-400); }
 
   .footer {
     margin-top: 30px;
@@ -314,7 +311,7 @@
     </div>
   </div>
 
-  <p class="host"><b>주최</b> Woongjin SkillOne &nbsp;·&nbsp; <b>파트너</b> Udemy Business</p>
+  <p class="host"><b>주최</b> Woongjin Thinkbig &nbsp;·&nbsp; <b>파트너</b> Udemy Business</p>
 
   <div class="panel" id="formPanel">
     <h2>참가 신청</h2>
@@ -350,13 +347,13 @@
           <div class="errmsg"></div>
         </div>
         <div class="field">
-          <label for="carNumber">차량번호<span class="req">*</span></label>
-          <input type="text" id="carNumber" name="carNumber" placeholder="예: 12가 3456" required>
+          <label for="carNumber">차량번호</label>
+          <input type="text" id="carNumber" name="carNumber" placeholder="예: 12가 3456">
           <div class="errmsg"></div>
         </div>
         <div class="field full">
-          <label for="valet">발렛 이용 여부<span class="req">*</span></label>
-          <select id="valet" name="valet" required>
+          <label for="valet">발렛 이용 여부</label>
+          <select id="valet" name="valet">
             <option value="" disabled selected>선택해 주세요</option>
             <option value="이용">이용</option>
             <option value="미이용">미이용</option>
@@ -366,7 +363,7 @@
       </div>
 
       <button type="submit" class="submit" id="submitBtn">참가 신청하기</button>
-      <a class="fallback-link" href="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdhEBr1gZdzAABjOGRKMsmB8QEg2HsSP1iCcMs5HQJuWDzFoQ/viewform" target="_blank" rel="noopener">신청이 정상적으로 되지 않으시면 여기를 눌러 직접 신청해 주세요</a>
+      <p class="fallback-note">신청이 정상적으로 되지 않으시면 받으신 메일을 통해 직접 회신 주시면 감사하겠습니다.</p>
     </form>
   </div>
 
@@ -390,6 +387,7 @@
   form.action = APPS_SCRIPT_URL;
 
   var fields = ['name', 'affiliation', 'position', 'phone', 'email', 'carNumber', 'valet'];
+  var optionalFields = ['carNumber', 'valet'];
   var submitted = false;
 
   function setError(id, msg) {
@@ -408,9 +406,14 @@
     var ok = true;
     fields.forEach(function (id) {
       var val = document.getElementById(id).value.trim();
+      var isOptional = optionalFields.indexOf(id) !== -1;
       if (!val) {
-        setError(id, '필수 입력 항목입니다.');
-        ok = false;
+        if (isOptional) {
+          setError(id, '');
+        } else {
+          setError(id, '필수 입력 항목입니다.');
+          ok = false;
+        }
       } else if (id === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
         setError(id, '이메일 형식을 확인해 주세요.');
         ok = false;
