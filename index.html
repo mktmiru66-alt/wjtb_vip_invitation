@@ -176,6 +176,7 @@
     font-weight: 600;
   }
   label .req { color: var(--ember-500); margin-left: 2px; }
+  label .hint { color: var(--ink-500); font-weight: 400; margin-left: 4px; }
 
   input[type="text"],
   input[type="tel"],
@@ -343,7 +344,7 @@
           <div class="errmsg"></div>
         </div>
         <div class="field">
-          <label for="carNumber">차량번호</label>
+          <label for="carNumber">차량번호<span class="hint">(발렛 이용 시 필수)</span></label>
           <input type="text" id="carNumber" name="carNumber" placeholder="예: 12가 3456">
           <div class="errmsg"></div>
         </div>
@@ -399,12 +400,16 @@
 
   function validate() {
     var ok = true;
+    var valetInUse = document.getElementById('valet').value === '이용';
     fields.forEach(function (id) {
       var val = document.getElementById(id).value.trim();
-      var isOptional = optionalFields.indexOf(id) !== -1;
+      var isOptional = optionalFields.indexOf(id) !== -1 && !(id === 'carNumber' && valetInUse);
       if (!val) {
         if (isOptional) {
           setError(id, '');
+        } else if (id === 'carNumber') {
+          setError(id, '발렛 이용 시 차량번호를 입력해 주세요.');
+          ok = false;
         } else {
           setError(id, '필수 입력 항목입니다.');
           ok = false;
