@@ -31,7 +31,11 @@
     color: var(--ink-100);
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
+    word-break: keep-all;
+    overflow-wrap: break-word;
   }
+
+  .nowrap { white-space: nowrap; }
 
   body {
     min-height: 100vh;
@@ -265,14 +269,6 @@
   .success .mark svg { width: 22px; height: 22px; stroke: var(--gold-400); }
   .success h2 { font-family: var(--font-display); font-size: 22px; margin: 0 0 12px; color: var(--ink-100); }
   .success p { color: var(--ink-400); font-size: 16px; line-height: 1.7; margin: 0; }
-  .success .note {
-    margin-top: 18px;
-    padding-top: 16px;
-    border-top: 1px solid var(--navy-700);
-    font-size: 13.5px;
-    color: var(--ink-500);
-    line-height: 1.6;
-  }
 
   @media (max-width: 640px) {
     .grid { grid-template-columns: 1fr; }
@@ -307,11 +303,11 @@
     </div>
     <div class="meta-row">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg>
-      <span><strong>포시즌스 호텔 서울</strong> ARA I+II (6층) · 종로구 새문안로 97</span>
+      <span><strong>포시즌스 호텔 서울</strong> <span class="nowrap">ARA I+II (6층)</span><br>종로구 새문안로 97</span>
     </div>
   </div>
 
-  <p class="host"><b>주최</b> Woongjin Thinkbig &nbsp;·&nbsp; <b>파트너</b> Udemy Business</p>
+  <p class="host"><b>주최</b> <span class="nowrap">Woongjin Thinkbig</span> &nbsp;·&nbsp; <b>파트너</b> <span class="nowrap">Udemy Business</span></p>
 
   <div class="panel" id="formPanel">
     <h2>참가 신청</h2>
@@ -371,7 +367,6 @@
     <div class="mark"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div>
     <h2>신청해주셔서 감사합니다.</h2>
     <p>2026년 9월 8일(화) 오전 7:00<br>포시즌스 호텔 서울 ARA I+II (6층)에서 뵙겠습니다.</p>
-    <p class="note">입력하신 회사 메일로 확인 메일을 보내드립니다.<br>메일이 도착하지 않으면 02-2075-1091로 연락 부탁드립니다.</p>
   </div>
 
   <div class="footer">
