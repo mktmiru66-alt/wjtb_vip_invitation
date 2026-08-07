@@ -226,6 +226,17 @@
   .submit:active { transform: translateY(1px); }
   .submit:disabled { opacity: 0.6; cursor: default; }
 
+  .fallback-link {
+    display: block;
+    margin-top: 16px;
+    text-align: center;
+    font-size: 12.5px;
+    color: var(--ink-500);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .fallback-link:hover { color: var(--gold-400); }
+
   .footer {
     margin-top: 30px;
     padding-top: 22px;
@@ -355,6 +366,7 @@
       </div>
 
       <button type="submit" class="submit" id="submitBtn">참가 신청하기</button>
+      <a class="fallback-link" href="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdhEBr1gZdzAABjOGRKMsmB8QEg2HsSP1iCcMs5HQJuWDzFoQ/viewform" target="_blank" rel="noopener">신청이 정상적으로 되지 않으시면 여기를 눌러 직접 신청해 주세요</a>
     </form>
   </div>
 
