@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026 AI 인재전략 조찬포럼 참가 신청</title>
+<style>
+  :root {
+    --navy-950: #0a0d14;
+    --navy-900: #12161f;
+    --navy-800: #1b2130;
+    --navy-700: #262e40;
+    --gold-400: #cda869;
+    --gold-300: #e8d4a6;
+    --ember-500: #dd8c33;
+    --ember-600: #c67a26;
+    --ink-100: #f2ede1;
+    --ink-400: #98a0b3;
+    --ink-500: #6b7284;
+    --error: #e2665f;
+    --font-display: Georgia, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+    --font-body: 'Apple SD Gothic Neo', 'Malgun Gothic', -apple-system, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--navy-950);
+    color: var(--ink-100);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    min-height: 100vh;
+    padding: 48px 20px;
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background:
+      radial-gradient(ellipse 900px 500px at 50% -10%, rgba(205, 168, 105, 0.14), transparent 60%),
+      repeating-linear-gradient(0deg, rgba(205, 168, 105, 0.035) 0px, rgba(205, 168, 105, 0.035) 1px, transparent 1px, transparent 64px),
+      repeating-linear-gradient(90deg, rgba(205, 168, 105, 0.035) 0px, rgba(205, 168, 105, 0.035) 1px, transparent 1px, transparent 64px),
+      var(--navy-950);
+  }
+
+  .card {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    padding: 56px 44px 40px;
+    background: linear-gradient(180deg, var(--navy-900), var(--navy-950));
+    border: 1px solid var(--navy-700);
+  }
+
+  .card::before,
+  .card::after {
+    content: '';
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    border: 1.5px solid var(--gold-400);
+    opacity: 0.85;
+  }
+  .card::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+  .card::after { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+  .eyebrow {
+    text-align: center;
+    font-size: 13px;
+    letter-spacing: 0.28em;
+    color: var(--gold-400);
+    text-transform: uppercase;
+    margin: 0 0 22px;
+    font-weight: 600;
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    text-align: center;
+    font-size: clamp(30px, 7vw, 40px);
+    line-height: 1.35;
+    font-weight: 700;
+    margin: 0;
+    text-wrap: balance;
+    color: var(--ink-100);
+  }
+  h1 .em { color: var(--gold-300); }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 28px 0;
+  }
+  .divider::before,
+  .divider::after {
+    content: '';
+    height: 1px;
+    width: 64px;
+    background: linear-gradient(90deg, transparent, var(--gold-400));
+  }
+  .divider::after { background: linear-gradient(90deg, var(--gold-400), transparent); }
+  .divider span {
+    width: 5px;
+    height: 5px;
+    background: var(--gold-400);
+    transform: rotate(45deg);
+    flex: none;
+  }
+
+  .meta {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    text-align: center;
+    color: var(--ink-400);
+    font-size: 16.5px;
+    line-height: 1.6;
+  }
+  .meta-row { display: flex; align-items: center; gap: 9px; }
+  .meta-row svg { flex: none; width: 18px; height: 18px; stroke: var(--gold-400); }
+  .meta-row strong { color: var(--ink-100); font-weight: 600; }
+
+  .host {
+    text-align: center;
+    margin-top: 22px;
+    font-size: 13.5px;
+    letter-spacing: 0.06em;
+    color: var(--ink-500);
+  }
+  .host b { color: var(--gold-400); font-weight: 600; }
+
+  .panel {
+    margin-top: 36px;
+    background: var(--navy-800);
+    border: 1px solid var(--navy-700);
+    padding: 30px 26px;
+  }
+
+  .panel h2 {
+    margin: 0 0 6px;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--ink-100);
+  }
+  .panel .sub {
+    margin: 0 0 26px;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--ink-500);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 16px;
+  }
+  .field { display: flex; flex-direction: column; gap: 7px; }
+  .field.full { grid-column: 1 / -1; }
+
+  label {
+    font-size: 14px;
+    color: var(--ink-400);
+    font-weight: 600;
+  }
+  label .req { color: var(--ember-500); margin-left: 2px; }
+
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"],
+  select {
+    appearance: none;
+    background: var(--navy-900);
+    border: 1px solid var(--navy-700);
+    color: var(--ink-100);
+    font-family: var(--font-body);
+    font-size: 16px;
+    padding: 14px 14px;
+    outline: none;
+    width: 100%;
+    min-height: 48px;
+    transition: border-color 0.15s ease;
+  }
+  input::placeholder { color: var(--ink-500); }
+  input:focus, select:focus { border-color: var(--gold-400); }
+  input.invalid, select.invalid { border-color: var(--error); }
+
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2398a0b3' stroke-width='1.5' fill='none' fill-rule='evenodd'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 34px;
+  }
+
+  .errmsg {
+    font-size: 13px;
+    color: var(--error);
+    min-height: 16px;
+    margin-top: -2px;
+  }
+
+  .submit {
+    margin-top: 28px;
+    width: 100%;
+    padding: 17px;
+    min-height: 54px;
+    background: linear-gradient(180deg, var(--ember-500), var(--ember-600));
+    border: none;
+    color: #1a0f02;
+    font-family: var(--font-body);
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: filter 0.15s ease, transform 0.1s ease;
+  }
+  .submit:hover { filter: brightness(1.08); }
+  .submit:active { transform: translateY(1px); }
+  .submit:disabled { opacity: 0.6; cursor: default; }
+
+  .footer {
+    margin-top: 30px;
+    padding-top: 22px;
+    border-top: 1px solid var(--navy-700);
+    text-align: center;
+    font-size: 14px;
+    color: var(--ink-500);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 16px;
+  }
+  .footer b { color: var(--ink-400); font-weight: 600; }
+
+  .success {
+    display: none;
+    text-align: center;
+    padding: 20px 4px 4px;
+  }
+  .success.show { display: block; }
+  .panel.hidden { display: none; }
+  .success .mark {
+    width: 52px; height: 52px;
+    margin: 0 auto 18px;
+    border: 1.5px solid var(--gold-400);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .success .mark svg { width: 22px; height: 22px; stroke: var(--gold-400); }
+  .success h2 { font-family: var(--font-display); font-size: 22px; margin: 0 0 12px; color: var(--ink-100); }
+  .success p { color: var(--ink-400); font-size: 16px; line-height: 1.7; margin: 0; }
+
+  @media (max-width: 640px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    body { padding: 28px 14px; }
+    .card { padding: 34px 18px 28px; }
+    .panel { padding: 24px 18px; }
+    h1 { font-size: clamp(26px, 8vw, 32px); }
+    .meta { font-size: 15px; }
+    .meta-row { align-items: flex-start; text-align: left; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .submit { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <p class="eyebrow">VIP Invitation</p>
+  <h1>2026 <span class="em">AI 인재전략</span><br>조찬포럼</h1>
+
+  <div class="divider"><span></span></div>
+
+  <div class="meta">
+    <div class="meta-row">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>
+      <span><strong>2026년 9월 8일(화)</strong> 오전 6:30 ~ 10:30</span>
+    </div>
+    <div class="meta-row">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg>
+      <span><strong>포시즌스 호텔 서울</strong> ARA I+II (6층) · 종로구 새문안로 97</span>
+    </div>
+  </div>
+
+  <p class="host"><b>주최</b> Woongjin SkillOne &nbsp;·&nbsp; <b>파트너</b> Udemy Business</p>
+
+  <div class="panel" id="formPanel">
+    <h2>참가 신청</h2>
+    <p class="sub">아래 항목을 모두 입력해 주세요. 입력하신 정보는 행사 운영 목적으로만 사용됩니다.</p>
+
+    <iframe name="hidden_target" id="hidden_target" style="display:none;"></iframe>
+
+    <form id="applyForm" method="POST" target="hidden_target" novalidate>
+      <div class="grid">
+        <div class="field">
+          <label for="name">참석자명<span class="req">*</span></label>
+          <input type="text" id="name" name="name" placeholder="홍길동" required>
+          <div class="errmsg"></div>
+        </div>
+        <div class="field">
+          <label for="affiliation">소속<span class="req">*</span></label>
+          <input type="text" id="affiliation" name="affiliation" placeholder="회사/기관명" required>
+          <div class="errmsg"></div>
+        </div>
+        <div class="field">
+          <label for="position">직책/직급<span class="req">*</span></label>
+          <input type="text" id="position" name="position" placeholder="예: 팀장, 부장" required>
+          <div class="errmsg"></div>
+        </div>
+        <div class="field">
+          <label for="phone">연락처<span class="req">*</span></label>
+          <input type="tel" id="phone" name="phone" placeholder="010-0000-0000" required>
+          <div class="errmsg"></div>
+        </div>
+        <div class="field">
+          <label for="email">회사 메일<span class="req">*</span></label>
+          <input type="email" id="email" name="email" placeholder="name@company.com" required>
+          <div class="errmsg"></div>
+        </div>
+        <div class="field">
+          <label for="carNumber">차량번호<span class="req">*</span></label>
+          <input type="text" id="carNumber" name="carNumber" placeholder="예: 12가 3456" required>
+          <div class="errmsg"></div>
+        </div>
+        <div class="field full">
+          <label for="valet">발렛 이용 여부<span class="req">*</span></label>
+          <select id="valet" name="valet" required>
+            <option value="" disabled selected>선택해 주세요</option>
+            <option value="이용">이용</option>
+            <option value="미이용">미이용</option>
+          </select>
+          <div class="errmsg"></div>
+        </div>
+      </div>
+
+      <button type="submit" class="submit" id="submitBtn">참가 신청하기</button>
+    </form>
+  </div>
+
+  <div class="success" id="successPanel">
+    <div class="mark"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div>
+    <h2>신청해주셔서 감사합니다.</h2>
+    <p>2026년 9월 8일(화) 오전 6:30<br>포시즌스 호텔 서울 ARA I+II (6층)에서 뵙겠습니다.</p>
+  </div>
+
+  <div class="footer">
+    <span><b>전화 문의</b> 02-2075-1091</span>
+    <span><b>이메일 문의</b> yrna@wjthinkbig.com</span>
+  </div>
+</div>
+
+<script>
+  var APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx7uRPcrN2ywX9Sx1EI_c7UhgERJ0qhbuQgHmUPOoldv7gkxPNKEiRYSgm0pR2DmYMJyg/exec";
+
+  var form = document.getElementById('applyForm');
+  form.action = APPS_SCRIPT_URL;
+
+  var fields = ['name', 'affiliation', 'position', 'phone', 'email', 'carNumber', 'valet'];
+  var submitted = false;
+
+  function setError(id, msg) {
+    var input = document.getElementById(id);
+    var err = input.closest('.field').querySelector('.errmsg');
+    if (msg) {
+      input.classList.add('invalid');
+      err.textContent = msg;
+    } else {
+      input.classList.remove('invalid');
+      err.textContent = '';
+    }
+  }
+
+  function validate() {
+    var ok = true;
+    fields.forEach(function (id) {
+      var val = document.getElementById(id).value.trim();
+      if (!val) {
+        setError(id, '필수 입력 항목입니다.');
+        ok = false;
+      } else if (id === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+        setError(id, '이메일 형식을 확인해 주세요.');
+        ok = false;
+      } else if (id === 'phone' && val.replace(/[^0-9]/g, '').length < 9) {
+        setError(id, '연락처를 확인해 주세요.');
+        ok = false;
+      } else {
+        setError(id, '');
+      }
+    });
+    return ok;
+  }
+
+  fields.forEach(function (id) {
+    document.getElementById(id).addEventListener('input', function () { setError(id, ''); });
+    document.getElementById(id).addEventListener('change', function () { setError(id, ''); });
+  });
+
+  document.getElementById('hidden_target').addEventListener('load', function () {
+    if (!submitted) return;
+    document.getElementById('formPanel').classList.add('hidden');
+    document.getElementById('successPanel').classList.add('show');
+  });
+
+  form.addEventListener('submit', function (e) {
+    if (!validate()) {
+      e.preventDefault();
+      return;
+    }
+    submitted = true;
+    document.getElementById('submitBtn').disabled = true;
+    document.getElementById('submitBtn').textContent = '접수 중...';
+  });
+</script>
+
+</body>
+</html>
