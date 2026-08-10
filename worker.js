@@ -1,7 +1,17 @@
+const ALLOWED_ORIGINS = [
+  'https://2026wjtbvipinvitation.com',
+  'https://mktmiru66-alt.github.io'
+];
+
 export default {
   async fetch(request) {
     if (request.method !== 'POST') {
       return new Response('Method Not Allowed', { status: 405 });
+    }
+
+    const origin = request.headers.get('Origin') || request.headers.get('Referer') || '';
+    if (!ALLOWED_ORIGINS.some(o => origin.startsWith(o))) {
+      return new Response('Forbidden', { status: 403 });
     }
 
     const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxTWW2TDuU3_5O72hCQ9eQy8hXcg4nwpWkbDp_WU93FRmxvqCM7A6L4zEo0m2Gu1p9j0A/exec';

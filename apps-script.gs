@@ -7,6 +7,10 @@ function doPost(e) {
   var valetInUse = p.valet === "이용";
   var carNumber = (p.carNumber || "").trim();
 
+  if (!p.name || !p.affiliation || !p.position || !p.phone || !p.email) {
+    return ContentService.createTextOutput(JSON.stringify({ result: "error", message: "필수 입력 항목이 누락되었습니다." }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
   if (valetInUse && !carNumber) {
     return ContentService.createTextOutput(JSON.stringify({ result: "error", message: "발렛 이용 시 차량번호를 입력해 주세요." }))
       .setMimeType(ContentService.MimeType.JSON);
