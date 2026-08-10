@@ -40,7 +40,7 @@ function doPost(e) {
       var mapLink = "https://naver.me/FfeOl1Zs";
       var calendarLink = "https://calendar.google.com/calendar/render?action=TEMPLATE" +
         "&text=" + encodeURIComponent("2026 AI 인재전략 조찬포럼") +
-        "&dates=20260907T220000Z/20260908T013000Z" +
+        "&dates=20260907T223000Z/20260908T010000Z" +
         "&location=" + encodeURIComponent("포시즌스 호텔 서울 ARA I+II (6층), 서울 종로구 새문안로 97") +
         "&details=" + encodeURIComponent("문의: 02-2075-1091 / yrna@wjthinkbig.com");
 
@@ -67,7 +67,7 @@ function doPost(e) {
       htmlBody += "<p style=" + "\"font-size:13px;color:#888;margin:0 0 8px;\"" + ">행사 참가를 위해 시간과 장소를 한 번 더 확인해 주세요.</p>";
       htmlBody += "<table style=" + "\"width:100%;border-collapse:collapse;margin:12px 0 24px;font-size:14px;\"" + ">";
       htmlBody += row("행사명", "2026 AI 인재전략 조찬포럼");
-      htmlBody += row("행사일시", "<span style=" + "\"" + rowStyle + "\"" + ">2026.09.08(화) 07:00 ~ 10:30</span><br>" + scheduleLink);
+      htmlBody += row("행사일시", "<span style=" + "\"" + rowStyle + "\"" + ">2026.09.08(화) 07:30 ~ 10:00</span><br>" + scheduleLink);
       htmlBody += row("행사장소", "<span style=" + "\"" + rowStyle + "\"" + ">포시즌스 호텔 서울 ARA I+II (6층)</span><br>" + placeLink);
       htmlBody += "</table>";
       htmlBody += "<table style=" + "\"width:100%;border-collapse:collapse;margin:0 0 24px;font-size:14px;\"" + ">";
@@ -85,7 +85,7 @@ function doPost(e) {
 
       var plainBody =
         p.name + "님, 신청해주셔서 감사합니다.\n\n" +
-        "행사일시: 2026년 9월 8일(화) 오전 7:00 ~ 10:30\n" +
+        "행사일시: 2026년 9월 8일(화) 오전 7:30 ~ 10:00\n" +
         "행사장소: 포시즌스 호텔 서울 ARA I+II (6층) - " + mapLink + "\n" +
         "구글캘린더에 추가: " + calendarLink + "\n\n" +
         "문의: 02-2075-1091 / yrna@wjthinkbig.com";
