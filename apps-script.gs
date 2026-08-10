@@ -1,6 +1,20 @@
 function doPost(e) {
   var SPREADSHEET_ID = "1jbaA8d5pVgedKK9ZKAY3uQTd5Bt_7rslCovVksqsNEA";
   var SHEET_NAME = "신청자명단";
+  var CAR_NUMBER_REGEX = /^(?:[가-힣]{2,3}\s?)?\d{2,3}\s?[가-힣]\s?\d{4}$/;
+
+  var p = e.parameter;
+  var valetInUse = p.valet === "이용";
+  var carNumber = (p.carNumber || "").trim();
+
+  if (valetInUse && !carNumber) {
+    return ContentService.createTextOutput(JSON.stringify({ result: "error", message: "발렛 이용 시 차량번호를 입력해 주세요." }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+  if (carNumber && !CAR_NUMBER_REGEX.test(carNumber)) {
+    return ContentService.createTextOutput(JSON.stringify({ result: "error", message: "차량번호 형식을 확인해 주세요." }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
 
   var ss = SpreadsheetApp.openById(SPREADSHEET_ID);
   var sheet = ss.getSheetByName(SHEET_NAME);
@@ -10,7 +24,6 @@ function doPost(e) {
     sheet.setFrozenRows(1);
   }
 
-  var p = e.parameter;
   sheet.appendRow([
     new Date(),
     p.name || "",

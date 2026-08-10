@@ -420,6 +420,9 @@
       } else if (id === 'phone' && val.replace(/[^0-9]/g, '').length < 9) {
         setError(id, '연락처를 확인해 주세요.');
         ok = false;
+      } else if (id === 'carNumber' && !/^(?:[가-힣]{2,3}\s?)?\d{2,3}\s?[가-힣]\s?\d{4}$/.test(val)) {
+        setError(id, '차량번호 형식을 확인해 주세요. (예: 12가 3456)');
+        ok = false;
       } else {
         setError(id, '');
       }
