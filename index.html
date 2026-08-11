@@ -361,6 +361,11 @@
           </select>
           <div class="errmsg"></div>
         </div>
+        <div class="field full">
+          <label for="foodAllergy">음식 알러지<span class="hint">(선택)</span></label>
+          <input type="text" id="foodAllergy" name="foodAllergy" placeholder="알러지가 있으시면 알려주세요 (예: 갑각류, 땅콩 등)">
+          <div class="errmsg"></div>
+        </div>
       </div>
 
       <button type="submit" class="submit" id="submitBtn">참가 신청하기</button>
@@ -386,8 +391,8 @@
   var form = document.getElementById('applyForm');
   form.action = APPS_SCRIPT_URL;
 
-  var fields = ['name', 'affiliation', 'position', 'phone', 'email', 'carNumber', 'valet'];
-  var optionalFields = ['carNumber', 'valet'];
+  var fields = ['name', 'affiliation', 'position', 'phone', 'email', 'carNumber', 'valet', 'foodAllergy'];
+  var optionalFields = ['carNumber', 'valet', 'foodAllergy'];
   var submitted = false;
 
   function setError(id, msg) {

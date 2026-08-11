@@ -24,7 +24,7 @@ function doPost(e) {
   var sheet = ss.getSheetByName(SHEET_NAME);
   if (!sheet) {
     sheet = ss.insertSheet(SHEET_NAME);
-    sheet.appendRow(["제출시각", "참석자명", "소속", "직책/직급", "연락처", "회사 메일", "차량번호", "발렛유무"]);
+    sheet.appendRow(["제출시각", "참석자명", "소속", "직책/직급", "연락처", "회사 메일", "차량번호", "발렛유무", "음식 알러지"]);
     sheet.setFrozenRows(1);
   }
 
@@ -36,7 +36,8 @@ function doPost(e) {
     p.phone || "",
     p.email || "",
     p.carNumber || "",
-    p.valet || ""
+    p.valet || "",
+    p.foodAllergy || ""
   ]);
 
   if (p.email) {
