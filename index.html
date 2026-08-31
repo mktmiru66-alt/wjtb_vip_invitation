@@ -315,68 +315,9 @@
   <p class="host"><b>주최</b> <span class="nowrap">Woongjin Thinkbig</span> &nbsp;·&nbsp; <b>파트너</b> <span class="nowrap">Udemy Business</span></p>
 
   <div class="panel" id="formPanel">
-    <h2>참가 신청</h2>
-    <p class="sub">아래 항목을 모두 입력해 주세요. 입력하신 정보는 행사 운영 목적으로만 사용됩니다.</p>
-
-    <iframe name="hidden_target" id="hidden_target" style="display:none;"></iframe>
-
-    <form id="applyForm" method="POST" target="hidden_target" novalidate>
-      <div class="grid">
-        <div class="field">
-          <label for="name">참석자명<span class="req">*</span></label>
-          <input type="text" id="name" name="name" placeholder="홍길동" required>
-          <div class="errmsg"></div>
-        </div>
-        <div class="field">
-          <label for="affiliation">소속<span class="req">*</span></label>
-          <input type="text" id="affiliation" name="affiliation" placeholder="회사/기관명" required>
-          <div class="errmsg"></div>
-        </div>
-        <div class="field">
-          <label for="position">직책/직급<span class="req">*</span></label>
-          <input type="text" id="position" name="position" placeholder="예: 팀장, 부장" required>
-          <div class="errmsg"></div>
-        </div>
-        <div class="field">
-          <label for="phone">연락처<span class="req">*</span></label>
-          <input type="tel" id="phone" name="phone" placeholder="010-0000-0000" required>
-          <div class="errmsg"></div>
-        </div>
-        <div class="field">
-          <label for="email">회사 메일<span class="req">*</span></label>
-          <input type="email" id="email" name="email" placeholder="name@company.com" required>
-          <div class="errmsg"></div>
-        </div>
-        <div class="field">
-          <label for="carNumber">차량번호<span class="hint">(발렛 이용 시 필수)</span></label>
-          <input type="text" id="carNumber" name="carNumber" placeholder="예: 12가 3456">
-          <div class="errmsg"></div>
-        </div>
-        <div class="field full">
-          <label for="valet">발렛 이용 여부</label>
-          <select id="valet" name="valet">
-            <option value="" disabled selected>선택해 주세요</option>
-            <option value="이용">이용</option>
-            <option value="미이용">미이용</option>
-          </select>
-          <div class="errmsg"></div>
-        </div>
-        <div class="field full">
-          <label for="foodAllergy">음식 알러지<span class="hint">(선택)</span></label>
-          <input type="text" id="foodAllergy" name="foodAllergy" placeholder="알러지가 있으시면 알려주세요 (예: 갑각류, 땅콩 등)">
-          <div class="errmsg"></div>
-        </div>
-      </div>
-
-      <button type="submit" class="submit" id="submitBtn">참가 신청하기</button>
-      <p class="fallback-note">신청이 정상적으로 되지 않으시면 받으신 메일을 통해 직접 회신 주시면 감사하겠습니다.</p>
-    </form>
-  </div>
-
-  <div class="success" id="successPanel">
-    <div class="mark"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div>
-    <h2>신청해주셔서 감사합니다.</h2>
-    <p>2026년 9월 8일(화) 오전 7:30<br>포시즌스 호텔 서울 ARA I+II (6층)에서 뵙겠습니다.</p>
+    <h2>모집이 종료되었습니다.</h2>
+    <p class="sub">기타 문의사항은 아래 이메일로 연락 바랍니다.</p>
+    <p style="text-align:center; color: var(--gold-300); font-size:17px; font-weight:700; margin:0;">yrna@wjthinkbig.com</p>
   </div>
 
   <div class="footer">
@@ -384,82 +325,6 @@
     <span><b>이메일 문의</b> yrna@wjthinkbig.com</span>
   </div>
 </div>
-
-<script>
-  var APPS_SCRIPT_URL = "https://apply.2026wjtbvipinvitation.com";
-
-  var form = document.getElementById('applyForm');
-  form.action = APPS_SCRIPT_URL;
-
-  var fields = ['name', 'affiliation', 'position', 'phone', 'email', 'carNumber', 'valet', 'foodAllergy'];
-  var optionalFields = ['carNumber', 'valet', 'foodAllergy'];
-  var submitted = false;
-
-  function setError(id, msg) {
-    var input = document.getElementById(id);
-    var err = input.closest('.field').querySelector('.errmsg');
-    if (msg) {
-      input.classList.add('invalid');
-      err.textContent = msg;
-    } else {
-      input.classList.remove('invalid');
-      err.textContent = '';
-    }
-  }
-
-  function validate() {
-    var ok = true;
-    var valetInUse = document.getElementById('valet').value === '이용';
-    fields.forEach(function (id) {
-      var val = document.getElementById(id).value.trim();
-      var isOptional = optionalFields.indexOf(id) !== -1 && !(id === 'carNumber' && valetInUse);
-      if (!val) {
-        if (isOptional) {
-          setError(id, '');
-        } else if (id === 'carNumber') {
-          setError(id, '발렛 이용 시 차량번호를 입력해 주세요.');
-          ok = false;
-        } else {
-          setError(id, '필수 입력 항목입니다.');
-          ok = false;
-        }
-      } else if (id === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
-        setError(id, '이메일 형식을 확인해 주세요.');
-        ok = false;
-      } else if (id === 'phone' && val.replace(/[^0-9]/g, '').length < 9) {
-        setError(id, '연락처를 확인해 주세요.');
-        ok = false;
-      } else if (id === 'carNumber' && !/^(?:[가-힣]{2,3}\s?)?\d{2,3}\s?[가-힣]\s?\d{4}$/.test(val)) {
-        setError(id, '차량번호 형식을 확인해 주세요. (예: 12가 3456)');
-        ok = false;
-      } else {
-        setError(id, '');
-      }
-    });
-    return ok;
-  }
-
-  fields.forEach(function (id) {
-    document.getElementById(id).addEventListener('input', function () { setError(id, ''); });
-    document.getElementById(id).addEventListener('change', function () { setError(id, ''); });
-  });
-
-  document.getElementById('hidden_target').addEventListener('load', function () {
-    if (!submitted) return;
-    document.getElementById('formPanel').classList.add('hidden');
-    document.getElementById('successPanel').classList.add('show');
-  });
-
-  form.addEventListener('submit', function (e) {
-    if (!validate()) {
-      e.preventDefault();
-      return;
-    }
-    submitted = true;
-    document.getElementById('submitBtn').disabled = true;
-    document.getElementById('submitBtn').textContent = '접수 중...';
-  });
-</script>
 
 </body>
 </html>
